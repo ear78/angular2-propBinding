@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms';
 export class CockpitComponent implements OnInit {
   newServerName = '';
   newServerContent = '';
-  
+
   //Event emitters from the cockpit component telling the app comp about event
   @Output() serverCreated = new EventEmitter<{serverName: string, serverContent: string}>();
   @Output() blueprintCreated = new EventEmitter<{serverName: string, serverContent: string}>();
@@ -19,6 +19,11 @@ export class CockpitComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  // using the local variable input binding
+  // onAddServer(newServerName: HTMLInputElement){
+  //   this.serverCreated.emit({serverName: newServerName.value, serverContent: this.newServerContent});
+  // }
 
   onAddServer(){
     this.serverCreated.emit({serverName: this.newServerName, serverContent: this.newServerContent});
